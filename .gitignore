@@ -1,0 +1,13 @@
+# Pasta de relatórios do Allure
+reports/
+allure-results/
+
+# Arquivos temporários do Ruby e Capybara
+capybara-*.html
+gem_make.out
+.bundle/
+vendor/bundle
+
+# Logs e arquivos de sistema
+*.log
+.DS_Store
