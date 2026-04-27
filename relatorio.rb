@@ -27,13 +27,18 @@ html_content += "<p>Projeto: <strong>ProjetoWEB_QA</strong></p>"
 
 data.each do |feature|
   html_content += "<div class='feature-title'><strong>Feature:</strong> #{feature['name']}</div>"
-  
+
   feature['elements'].each do |scenario|
-    # Pula os backgrounds para focar nos resultados dos cenários
     next if scenario['type'] == 'background'
-    
-    html_content += "<div class='card'>"
-    html_content += "<span class='status'>PASSED ✅</span>"
+
+    # Verifica se todos os steps passaram
+    passed = scenario['steps'].all? { |step| step['result']['status'] == 'passed' }
+    status  = passed ? 'PASSED' : 'FAILED'
+    icone   = passed ? '✅' : '❌'
+    cor     = passed ? '#28a745' : '#dc3545'
+
+    html_content += "<div class='card' style='border-left-color:#{cor}'>"
+    html_content += "<span class='status' style='color:#{cor}'>#{status} #{icone}</span>"
     html_content += "<strong>Cenário:</strong> #{scenario['name']}"
     html_content += "</div>"
   end

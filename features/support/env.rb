@@ -40,8 +40,3 @@ Capybara.configure do |config|
     config.app_host = 'https://www.saucedemo.com'
     config.default_max_wait_time = 10
 end
-
-# Isso força o Cucumber a fechar o navegador direito ao final de cada teste
-After do |scenario|
-  Capybara.current_session.driver.quit
-end

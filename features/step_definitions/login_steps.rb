@@ -4,6 +4,7 @@ Given('I am on the login page') do
 end
 
 When('I log in with {string} and {string}') do |user, password|    
+    @login ||= LoginPage.new
     @login.log_in(user, password)
 end
 
