@@ -26,4 +26,14 @@ class LoginPage
   def has_products_title?
     has_content?('Products')
   end
+
+  def logout
+    find('#react-burger-menu-btn').click
+    find('#logout_sidebar_link').click
+  end
+
+  def has_login_page?
+    has_css?('#login-button')
+  end
+
 end

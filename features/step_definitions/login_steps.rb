@@ -8,6 +8,15 @@ When('I log in with {string} and {string}') do |user, password|
     @login.log_in(user, password)
 end
 
+And('I logout') do
+    @login ||= LoginPage.new
+    @login.logout
+end
+
+Then('I should be redirected to the login page') do
+    expect(@login.has_login_page?).to be true
+end
+
 Then('I should be redirected to the products page') do
     expect(@login.has_products_title?).to be true
 end

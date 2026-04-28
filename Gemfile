@@ -10,3 +10,4 @@ gem 'rspec'
 gem 'cucumber-html-formatter'
 gem 'allure-cucumber'
 gem 'fiddle'
+

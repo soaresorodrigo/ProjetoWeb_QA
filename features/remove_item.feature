@@ -4,6 +4,7 @@ Feature: Remove product from cart
     Given I am on the login page
     When I log in with "standard_user" and "secret_sauce"
 
+  @smoke @cart
   Scenario Outline: Remove multiple items from the cart
     Given I add the "<product_name>" to my cart
     And I visit the cart page

@@ -3,6 +3,7 @@ require 'selenium-webdriver'
 require 'fileutils' # Biblioteca para manipular arquivos
 require 'allure-cucumber'
 
+
 # Carrega automaticamente tudo que estiver dentro da pasta pages
 Dir[File.join(File.dirname(__FILE__), '../pages/*.rb')].each { |file| require file }
 
@@ -32,7 +33,8 @@ Capybara.register_driver :selenium_chrome do |app|
   options.add_preference('profile.password_manager_enabled', false)
   # -------------------------------------------------------------
 
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  service = Selenium::WebDriver::Chrome::Service.new
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options, service: service)
 end
 
 Capybara.configure do |config|
