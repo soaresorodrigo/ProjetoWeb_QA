@@ -23,6 +23,7 @@ Capybara.register_driver :selenium_chrome do |app|
   options.add_argument('--incognito')
   options.add_argument('--disable-gpu')
   options.add_argument('--no-sandbox')
+  options.add_argument('--headless=new')
   
   # --- AS LINHAS QUE DEVEM RESOLVER O SEU PROBLEMA NO WINDOWS ---
   # Desativa a integração com a API de chaves/senhas do Windows (o pop-up azul/cinza)
